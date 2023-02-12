@@ -11,6 +11,7 @@ export class ImageGalleryItem extends React.PureComponent {
               alt={'some pic'}
               width={400}
               height={250}
+              id={image.id}
             />
           </li>
         );
@@ -19,10 +20,8 @@ export class ImageGalleryItem extends React.PureComponent {
   );
 
   render() {
-    const { images, isLoading } = this.props;
+    const { images } = this.props;
 
-    return (
-      <>{images.length > 0 && !isLoading && this.handleRenderList(images)}</>
-    );
+    return <>{images.length > 0 && this.handleRenderList(images)}</>;
   }
 }
