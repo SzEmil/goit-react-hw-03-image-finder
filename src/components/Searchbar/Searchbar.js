@@ -1,5 +1,6 @@
 import React from 'react';
-
+import clsx from 'clsx';
+import css from './Searchbar.module.css';
 export class Searchbar extends React.PureComponent {
   handleFormOnSubmit = event => {
     event.preventDefault();
@@ -9,15 +10,26 @@ export class Searchbar extends React.PureComponent {
     form.reset();
   };
   render() {
-    // const { onSubmit } = this.props;
     return (
       <>
-        <header>
-          <form onSubmit={this.handleFormOnSubmit}>
-            <button type="submit">
-              <span>Search</span>
+        <header
+          style={{
+            backgroundColor: 'purple',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <form
+            className={clsx(css.searchForm)}
+            onSubmit={this.handleFormOnSubmit}
+          >
+            <button className={css.searchFormBtn} type="submit">
+              <span></span>
             </button>
             <input
+              className={clsx(css.searchFormInput)}
               type="text"
               autoComplete="off"
               autoFocus

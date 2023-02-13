@@ -5,6 +5,7 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
 import { Button } from './Button/Button';
 import { Modal } from './Modal/Modal';
+import { Loader } from './Loader/Loader';
 export class App extends React.PureComponent {
   state = {
     images: [],
@@ -64,23 +65,28 @@ export class App extends React.PureComponent {
     }
   };
   render() {
-    const { images, isLoading, error } = this.state;
+    const { images, isLoading, error, modalProp } = this.state;
     return (
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         <Searchbar onSubmit={this.handleOnSubmit} />
         {error && <p>Oh, something went wrong :c error: {error.message}</p>}
-        <ImageGallery onClick={this.handleModal} images={this.state.images}>
+        <ImageGallery onClick={this.handleModal} images={images}>
           <ImageGalleryItem images={images} isLoading={isLoading} />
         </ImageGallery>
-        {isLoading && <p>Loading data...</p>}
-        {this.state.images.length > 0 ? (
+        <Loader isLoading={isLoading} />
+        {images.length > 0 ? (
           <Button handleOnClick={this.handleOnClick} />
-        ) : (
-          <p>no photos found</p>
-        )}
-        {this.state.modalProp !== null && (
+        ) : null}
+        {modalProp !== null && (
           <Modal
-            modalProp={this.state.modalProp}
+            modalProp={modalProp}
             onKeyDown={this.handleModalClosed}
             onClick={this.handleModalClosed}
           />

@@ -5,7 +5,6 @@ import css from './Modal.module.css';
 export class Modal extends React.PureComponent {
   handleModalCLick = event => {
     if (event.target.nodeName !== 'IMG') {
-
       return this.props.onClick(true);
     } else {
       return;
@@ -14,7 +13,6 @@ export class Modal extends React.PureComponent {
 
   handleCloseModal = event => {
     if (event.code === 'Escape') {
-
       return this.props.onKeyDown(true);
     }
   };
@@ -31,7 +29,7 @@ export class Modal extends React.PureComponent {
       <>
         <div className={clsx(css.overlay)} onClick={this.handleModalCLick}>
           <div className={clsx(css.modal)} onKeyDown={this.handleCloseModal}>
-            <img src={modalProp.largeImageURL} alt="som pic" />
+            <img src={modalProp.largeImageURL} alt="pixabay pic" />
           </div>
         </div>
       </>

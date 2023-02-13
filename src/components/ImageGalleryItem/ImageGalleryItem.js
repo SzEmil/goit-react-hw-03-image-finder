@@ -1,14 +1,16 @@
 import React from 'react';
-
+import clsx from 'clsx';
+import css from './ImageGalleryItem.module.css';
 export class ImageGalleryItem extends React.PureComponent {
   handleRenderList = images => (
     <>
       {images.map(image => {
         return (
-          <li key={image.id}>
+          <li className={clsx(css.ImageGalleryItem)} key={image.id}>
             <img
+              className={clsx(css.ImageGalleryPhoto)}
               src={image.webformatURL}
-              alt={'some pic'}
+              alt={'pixabay pic'}
               width={400}
               height={250}
               id={image.id}
