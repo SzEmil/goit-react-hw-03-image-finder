@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import css from './Modal.module.css';
-
+import { PropTypes } from 'prop-types';
 export class Modal extends React.PureComponent {
   handleModalCLick = event => {
     if (event.target.nodeName !== 'IMG') {
@@ -36,3 +36,6 @@ export class Modal extends React.PureComponent {
     );
   }
 }
+Modal.propTypes = {
+  modalProp: PropTypes.object,
+};

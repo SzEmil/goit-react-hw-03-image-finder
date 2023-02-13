@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import css from './ImageGalleryItem.module.css';
+import { PropTypes } from 'prop-types';
 export class ImageGalleryItem extends React.PureComponent {
   handleRenderList = images => (
     <>
@@ -27,3 +28,10 @@ export class ImageGalleryItem extends React.PureComponent {
     return <>{images.length > 0 && this.handleRenderList(images)}</>;
   }
 }
+ImageGalleryItem.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.object,
+    })
+  ),
+};

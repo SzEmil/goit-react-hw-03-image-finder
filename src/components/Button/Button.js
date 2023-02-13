@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import css from './Button.module.css';
+import { PropTypes } from 'prop-types';
 export class Button extends React.PureComponent {
   render() {
     const { handleOnClick } = this.props;
@@ -17,3 +18,6 @@ export class Button extends React.PureComponent {
     );
   }
 }
+Button.propTypes = {
+  handleOnClick: PropTypes.func,
+};

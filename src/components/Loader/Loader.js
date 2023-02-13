@@ -1,5 +1,6 @@
 import React from 'react';
 import { ColorRing } from 'react-loader-spinner';
+import { PropTypes } from 'prop-types';
 export class Loader extends React.PureComponent {
   render() {
     const { isLoading } = this.props;
@@ -20,3 +21,7 @@ export class Loader extends React.PureComponent {
     );
   }
 }
+
+Loader.propTypes = {
+  isLoading: PropTypes.bool,
+};

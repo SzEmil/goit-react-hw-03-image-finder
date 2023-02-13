@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import css from './Searchbar.module.css';
+
 export class Searchbar extends React.PureComponent {
   handleFormOnSubmit = event => {
     event.preventDefault();
